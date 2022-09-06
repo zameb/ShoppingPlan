@@ -5,6 +5,6 @@
         public Guid Id { get; set; }
         public bool IsPurchased { get; set; }
 
-        public virtual IEnumerable<Article> Articles { get; set; }
+        public virtual IEnumerable<Article> Articles { get; set; } = default!;
     }
 }
