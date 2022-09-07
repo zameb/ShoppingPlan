@@ -7,11 +7,13 @@ namespace Quipu.ShoppingPlan.Repository.EfRepository
     {
         private readonly string _connectionString;
 
+        public DbSet<User> Users { get; set; } = default!;
         public DbSet<Article> Articles { get; set; } = default!;
         public DbSet<Category> Categories { get; set; } = default!;
-        public DbSet<ShoppingTemplate> ShoppingListTemplate { get; set; } = default!;
-        public DbSet<ShoppingTemplate> ShoppingList { get; set; } = default!;
-        public DbSet<ShoppingTemplate> ShoppingListItem { get; set; } = default!;
+        public DbSet<ShoppingTemplate> ShoppingTemplates { get; set; } = default!;
+        public DbSet<ShoppingTemplateItem> ShoppingTemplateItems { get; set; } = default!;
+        public DbSet<ShoppingList> ShoppingLists { get; set; } = default!;
+        public DbSet<ShoppingListItem> ShoppingListItems { get; set; } = default!;
 
         public ShoppingPlanContext(string connectionString)
         {

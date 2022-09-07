@@ -6,6 +6,7 @@
         public Guid Id { get; set; }
         public Guid ShoppingTemplateId { get; set; }
         public DateTime CreationDate { get; set; }
+        public DateTime FinishDate { get; set; }
 
         public virtual IEnumerable<ShoppingListItem> Details { get; set; } = default!;
     }

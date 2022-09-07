@@ -8,5 +8,7 @@
         public Guid ArticleId { get; set; }
         public decimal Quantity { get; set; }
         public bool IsPurchased { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime PurchaseDate { get; set; }
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quipu.ShoppingPlan", "Quipu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quipu.ShoppingPlan.Repository", "Quipu.ShoppingPlan.Repository\Quipu.ShoppingPlan.Repository.csproj", "{3F22F703-8F0A-495B-9EE8-175DE3ED7602}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quipu.ShoppingPlan.WebApi", "Quipu.ShoppingPlan.WebApi\Quipu.ShoppingPlan.WebApi.csproj", "{72D35461-0A97-4146-8661-021EA92A0AE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3F22F703-8F0A-495B-9EE8-175DE3ED7602}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F22F703-8F0A-495B-9EE8-175DE3ED7602}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F22F703-8F0A-495B-9EE8-175DE3ED7602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72D35461-0A97-4146-8661-021EA92A0AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72D35461-0A97-4146-8661-021EA92A0AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72D35461-0A97-4146-8661-021EA92A0AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72D35461-0A97-4146-8661-021EA92A0AE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
