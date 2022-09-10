@@ -16,9 +16,9 @@ namespace Quipu.ShoppingPlan.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ArticleResponse>>> GetArticlesByName(string name)
+        public ActionResult<IEnumerable<ArticleResponse>> GetArticlesByName(string name)
         {
-            var articles = await _articlesRepository.GetArticlesByNameAsync(name, 10);
+            var articles = _articlesRepository.GetArticlesByNameAsync(name, 10);
             if (articles != null)
             {
                 var articlesResponseList = new List<ArticleResponse>();
@@ -31,7 +31,7 @@ namespace Quipu.ShoppingPlan.WebApi.Controllers
                             Name = article.Name
                         });
                 }
-                return articlesResponseList;
+                return new OkObjectResult(articlesResponseList);
             }
             return new EmptyResult();
         }

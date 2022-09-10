@@ -23,11 +23,13 @@ namespace Quipu.ShoppingPlan.Repository.EfRepository
             return await _context.Articles.SingleOrDefaultAsync(a => a.Id == id);
         }
 
-        public async Task<IEnumerable<Article>?> GetArticlesByNameAsync(string namePart, int count)
+        public IEnumerable<Article>? GetArticlesByNameAsync(string namePart, int count)
         {
-            var articles =_context.Articles
-                .Where(a => a.Name.Contains(namePart)).Take(count);
-            return await Task.FromResult(articles);
+            var articles = _context.Articles
+                .Where(a => a.Name.Contains(namePart))
+                .OrderBy(a => a.Name)
+                .Take(count);
+            return articles;
         }
     }
 }
