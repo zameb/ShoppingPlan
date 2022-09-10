@@ -1,0 +1,25 @@
+﻿Prerrequisitos:
+--------------
+El Proyecto de inicio debe tener instalado el paquete Nuget:
+	Microsoft.EntityFrameworkCore.Design
+Instalar o alinear la versión de ef-tools con los paquetes Nuget instalados
+	dotnet tool install --global dotnet-ef --version 6.0.8
+	dotnet tool update --global dotnet-ef --version 6.0.8
+Para ejecutar las migraciones: 
+	En la línea de comandos, debemos estar ubicados en la ruta del proyecto de inicio (no la del modelo)
+	Tenemos que indicar la ruta del DbContext por medio del parámetro --project
+
+Pasos
+-----
+1) Crear la primera migración
+
+Abrir la ruta del proyecto de inicio en una ventana de comandos
+
+dotnet ef migrations add db_creation --project ../Quipu.ShoppingPlan.Repository
+
+--project [path]: Ruta del proyecto que contiene el DbContext
+
+2) Aplicar la migración recién creada
+
+dotnet ef database update
+

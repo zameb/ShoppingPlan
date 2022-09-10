@@ -2,6 +2,7 @@
 {
     public class ShoppingListItem
     {
+        public Guid Id { get; set; }
         public Guid UserId { get; set; }
         public int ItemNumber { get; set; }
         public Guid ShoppingListId { get; set; }

@@ -5,8 +5,6 @@ namespace Quipu.ShoppingPlan.Repository.EfRepository
 {
     public class ShoppingPlanContext : DbContext
     {
-        private readonly string _connectionString;
-
         public DbSet<User> Users { get; set; } = default!;
         public DbSet<Article> Articles { get; set; } = default!;
         public DbSet<Category> Categories { get; set; } = default!;
@@ -15,14 +13,8 @@ namespace Quipu.ShoppingPlan.Repository.EfRepository
         public DbSet<ShoppingList> ShoppingLists { get; set; } = default!;
         public DbSet<ShoppingListItem> ShoppingListItems { get; set; } = default!;
 
-        public ShoppingPlanContext(string connectionString)
+        public ShoppingPlanContext(DbContextOptions<ShoppingPlanContext> options) : base(options)
         {
-            _connectionString = connectionString;
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(_connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,6 +22,5 @@ namespace Quipu.ShoppingPlan.Repository.EfRepository
             //TODO: Ajustes al modelo
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }
