@@ -1,4 +1,5 @@
-﻿using Quipu.ShoppingPlan.Repository.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using Quipu.ShoppingPlan.Repository.Model;
 
 namespace Quipu.ShoppingPlan.Repository.EfRepository
 {
@@ -11,19 +12,22 @@ namespace Quipu.ShoppingPlan.Repository.EfRepository
             _context = context;
         }
 
-        public Task AddArticleAsync(Article article)
+        public async Task AddArticleAsync(Article article)
         {
-            throw new NotImplementedException();
+            await _context.Articles.AddAsync(article);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Article?> GetArticleByIdAsync(Guid id)
+        public async Task<Article?> GetArticleByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _context.Articles.SingleOrDefaultAsync(a => a.Id == id);
         }
 
-        public Task<IEnumerable<Article>?> GetArticlesByNameAsync(string name)
+        public async Task<IEnumerable<Article>?> GetArticlesByNameAsync(string namePart, int count)
         {
-            throw new NotImplementedException();
+            var articles =_context.Articles
+                .Where(a => a.Name.Contains(namePart)).Take(count);
+            return await Task.FromResult(articles);
         }
     }
 }
