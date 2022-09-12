@@ -15,13 +15,14 @@ namespace Quipu.ShoppingPlan.WebApi.Controllers
             _articlesRepository = articlesRepository;
         }
 
+        //https://localhost:7188/articles?name=qqq
         [HttpGet]
         public ActionResult<IEnumerable<ArticleResponse>> GetArticlesByName(string name)
         {
+            var articlesResponseList = new List<ArticleResponse>();
             var articles = _articlesRepository.GetArticlesByNameAsync(name, 10);
             if (articles != null)
             {
-                var articlesResponseList = new List<ArticleResponse>();
                 foreach (var article in articles)
                 {
                     articlesResponseList.Add(
@@ -31,9 +32,8 @@ namespace Quipu.ShoppingPlan.WebApi.Controllers
                             Name = article.Name
                         });
                 }
-                return new OkObjectResult(articlesResponseList);
             }
-            return new EmptyResult();
+            return new OkObjectResult(articlesResponseList);
         }
     }
 }
